@@ -1,0 +1,62 @@
+<!-- Vista de prueba al que se llega desde un login exitoso -->
+{% load static%}
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'login/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'login/welcome.css' %}">
+	</head>
+	<body>
+		<div class="topnav">
+            <button type="button" onclick="location.href='/admin/'" class="btn btn-secondary btn-sm">Cerrar sesión</button>
+            <button type="button" onclick="location.href='/adminHC/'" class="btn btn-secondary btn-sm">Volver</button>
+			<a>Has iniciado sesión</a>
+			<div class="topnav-right">
+				<a href="/help/">Ayuda</a>
+            </div>
+		</div>
+        <div class="canvas">
+            <form action="/adminCreate/" method="post">
+                {% csrf_token %}
+                <br>
+                <h4 class="font-weight-bold" >Información básica</h4>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombre completo" required pattern="[A-Za-z ]{1,34}">
+                    </div>
+                    <div class="form-group col-md-6">
+                    <label for="Edad">Edad</label>
+                    <input type="text" class="form-control" name="edad" placeholder="Edad" required pattern="[0-9]{1,3}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dirección">Dirección</label>
+                    <input type="text" class="form-control" name="direccion" placeholder="Dirección" required pattern="[A-Za-z0-9 ]{1,55}">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="sexo">Sexo</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ocupacion">Cédula</label>
+                        <input type="text" class="form-control" name="cedula" placeholder="Número de identificación" required pattern="[0-9]{1,10}">
+                    </div>
+                </div>
+                <hr>
+                <h4 class="font-weight-bold" >Información adicional</h4>
+                <div class="form-group">
+                    <label>IPS a las que ha asistido:</label>
+                    <input type="text" class="form-control" name="ips" placeholder="Separe las distintas IPS por comas">
+                </div>
+                <!--textarea rows="5" id="motivInput" class="form-control" name="motivo" placeholder="Texto de ejemplo"></textarea-->
+                <button type="submit" class="btn btn-primary" value="newHC">Crear</button>
+            </form>
+        </div>
+    </body>
+</html>	

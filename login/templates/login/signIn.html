@@ -1,0 +1,20 @@
+<!-- Vista de Inicio de sesión -->
+
+<!-- Se indica que la vista exitende el archivo base.html-->
+{% extends "login/base.html" %}
+<!-- Se inidica que empieza el contenido adicional -->
+{% block content %}
+	<h1>Iniciar sesión</h1>
+	<p class="message">Recuerde iniciar sesión con su correo institucional
+		y no compartir sus credenciales con ninguna otra persona.
+	</p><br>
+	<form action="/postSign/" class="login-form" method="post" name="form" value="signIn">
+		{% csrf_token %}
+		<input type="email" name="email" placeholder="Correo institucional"/>
+		<input type="password" name="pass" placeholder="Contraseña"/>
+		<button type="submit" value="signIn">Iniciar sesión</button>
+		<p class="message"><a href="#">¿Olvidaste tu contraseña?</a></p>
+		<p class="message"><a href="https://www.mintic.gov.co/portal/604/articles-4274_documento.pdf">Ley 1581 de 2012</a></p>
+	</form>
+<!-- Se inidica que termina el contenido adicional -->
+{% endblock content %}

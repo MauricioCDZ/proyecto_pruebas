@@ -1,0 +1,24 @@
+<!-- Vista de prueba al que se llega desde un login exitoso -->
+{% load static%}
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'login/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'login/welcome.css' %}">
+	</head>
+	<body>
+		<div class="topnav">
+            <button type="button" onclick="location.href='/admin'" class="btn btn-secondary btn-sm">Cerrar sesión</button>
+            <button type="button" onclick="location.href='/adminEdit/{{ cedula }}'" class="btn btn-secondary btn-sm">Volver</button>
+			<a>Has iniciado sesión</a>
+			<div class="topnav-right">
+				<a href="#">Ayuda</a>
+            </div>
+        </div>
+        <div class="canvas">
+            <h3>Historial de cambios</h3>
+            <p>{{ data }}</p>
+        </div>
+    </body>
+</html>	

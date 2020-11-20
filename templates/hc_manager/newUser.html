@@ -1,0 +1,38 @@
+<!-- Vista de prueba al que se llega desde un login exitoso -->
+{% load static%}
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>New User</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'login/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'login/welcome.css' %}">
+	</head>
+	<body>
+		<div class="topnav">
+            <button type="button" onclick="location.href='/admin'" class="btn btn-secondary btn-sm">Cerrar sesión</button>
+            <button type="button" onclick="location.href='/adminHC/'" class="btn btn-secondary btn-sm">Volver</button>
+			<a>Has iniciado sesión</a>
+			<div class="topnav-right">
+				<a href="/help/">Ayuda</a>
+            </div>
+		</div>
+        <div class="canvas">
+            <form action="/adminUser/" method="post">
+                {% csrf_token %}
+                <br>
+                <h4 class="font-weight-bold" >Nuevo Usuario</h4>
+                <div class="form-group col-md-6">
+                <label for="nombre">Email</label>
+                <input type="email" class="form-control" name="email" required>
+                </div>
+                <div class="form-group col-md-6">
+                <label for="email">Contraseña</label>
+                <input type="password" class="form-control" name="pass" required>
+                </div>
+
+                
+                <button type="submit" class="btn btn-primary" value="newHC">Crear</button>
+            </form>
+        </div>
+    </body>
+</html>	

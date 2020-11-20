@@ -1,0 +1,24 @@
+<!-- Archivo base para la maquetación de las vistas de la aplicación dedicada al login -->
+<!-- Indicar que se va a utilizar estilos CSS en la carpeta static -->
+{% load static%}
+{% if msg %}
+	<script>
+	    alert('{{msg}}')
+	</script>
+{% endif %}
+		<html lang="es">
+            <link rel="stylesheet" type="text/css" href="{% static 'login/login.css' %}">
+			<head>
+				<meta charset="UTF-8">
+				<title>Sign</title>
+			</head>
+				<body>
+					<div class="login-page">
+						<div class="form">
+                            <!-- Contenido que cambia conforme a las vistas -->
+							{% block content %}{% endblock content %}
+						</div>
+					  </div>
+					</form>
+			</body>
+		</html>	

@@ -1,0 +1,65 @@
+<!-- Vista de prueba al que se llega desde un login exitoso -->
+{% load static%}
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'login/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'login/welcome.css' %}">
+	</head>
+	<body>
+		<div class="topnav">
+			<button type="button" onclick="location.href='/'" class="btn btn-secondary btn-sm">Cerrar sesión</button>
+			<a>Has iniciado sesión</a>
+			<div class="topnav-right">
+				<a href="/help/">Ayuda</a>
+			</div>
+		</div>
+		<div class="sidenav">
+			{% csrf_token %}
+			<button type="submit" class="btn btn-dark" onclick="location.href='/newHC/'" name="newHC" value="create">Nueva historia</button>
+			<hr>
+			<h6 class="font-weight-bold">Filtros para búsqueda</h6>
+			<form action="#" method="post">
+				<input type="text" id ="dateInput" placeholder="Ingrese una fecha...">
+			</form>
+		</div>
+		<div class="dashboard">
+			<form action="/postSign/" method="post">
+				{% csrf_token %}
+				<br>
+				<h4 class="font-weight-bold">Búsqueda de historia clínica</h4>
+				<input type="text" id ="myInput" name="cedula_search" placeholder="Ingrese cédula a buscar...">
+			</form>
+			{% for ced, user in data.items %}
+				<div class="row" id="myItems">
+					<div class="col-sm-12 mb-3">
+						<form action="/postSign/" method="post">
+							<a href="/editHC/{{ user.cedula }}">
+								<div class="card">
+									<div class="row">
+										<div class="col-md-4">
+											<div class="card-body">
+												<h6 name="nombre">Nombre: {{ user.nombre }}</h6>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="card-body">
+												<h6 name="cedula">Cédula: {{ user.cedula }}</h6>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="card-body">
+												<h6 name="edad">Edad: {{ user.edad }}</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</form>
+					</div>    
+				</div>
+			{% endfor %}
+		</div>
+	</body>
+</html>

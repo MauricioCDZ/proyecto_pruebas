@@ -1,0 +1,15 @@
+Nutricionistas:
+URL de login: 18.221.226.0:8000/
+
+Correo: gargal@gmail.com
+Contraseña: test123
+
+Correo: juanito@outlook.com
+Contraseña: test123
+
+
+Administrador:
+URL de login: 18.221.226.0:8000/admin
+
+Correo: admin@jmail.com
+Contraseña: test123

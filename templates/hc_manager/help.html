@@ -1,0 +1,28 @@
+<!-- Vista de prueba al que se llega desde un login exitoso -->
+{% load static%}
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'login/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'login/welcome.css' %}">
+	</head>
+	<body>
+        <div class="canvas">
+                {% csrf_token %}
+                <br>
+                <h4 class="font-weight-bold" >Información de contacto</h4>
+                <p class="text-justify">Esta aplicación web está basada en Django y desarrollada por Jeffrey García, Mauricio Cortés y Josué Peña</p>
+                <h5 class="font-weight-bold">Email</h5>
+                <p>jeffrey12cali@javerianacali.edu.co</p>
+                <p>josuepeña@javerianacali.edu.co</p>
+                <p>mauriciocortes@javerianacali.edu.co</p>
+                <hr>
+                <h4 class="font-weight-bold">Enlaces importantes</h4>
+                <a href="https://github.com/jeffrey12cali/HC-manager">Repositorio de Github</a><br>
+                <a href="https://www.mintic.gov.co/portal/604/articles-4274_documento.pdf">Ley para la protección de datos</a><br>
+                <a href="#">Enlace al manual de usuario</a><br>
+                <a href="#">Enlace al manual técnico de la aplicación</a><br>
+        </div>
+    </body>
+</html>	
